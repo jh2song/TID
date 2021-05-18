@@ -1,0 +1,75 @@
+/* 전체 스타일 정의*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {
+	font-family: 'Nanum Gothic';
+}
+* {
+	color: #ffffff;
+	text-decoration: none;
+}
+* :hover {
+	color: #ffffff;
+	text-decoration: none;
+	cursor: pointer;
+}
+/*네비게이션 영역*/
+/*배경색상*/
+.navbar-default{
+	background-color: #000000;
+	border-color: #000000;
+}
+
+/*네비게이션 제목 글자색*/
+.navbar-default .navbar-brand{
+	color: #ffffff;
+	font-size: 30px;
+} 
+/*네비게이션 제목에 마우스를 올렸을 때*/
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus{
+	background-color: transparent;
+	color: #bbbbbb;
+}
+/*현재 선택된 네비게이션 색상 이벤트*/
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+	color: #ffffff;
+	background-color: #000000;
+}
+/*네비게이션 글자에 마우스를 올렸을 떄*/
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus{
+	background-color: #bbbbbb;
+}
+/*드랍 다운이 열렸을 떄 마우스 색상 이벤트*/
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus{
+	color: #000000;
+	background-color: #ffffff; 
+	text-decoration: none;
+}
+/*네비게이션 기본 색상*/
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+/**/
+@media (max-width: 767px){/*해상도의 가로 크기가 767px 보다 작을때*/
+	.navbar-default .navbar-nav .open .dropdown-menu>li > a{
+		color: #ffffff;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu>li > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu>li > a{
+		color: #bbbbbb;
+	}
+}
+.jumbotron{
+	/*로그인*/
+	background-image: url('C:/Users/cksdl/OneDrive/바탕 화면/캡스톤디자인/images/img.jpg');
+	background-position: 0% 100%;
+	background-size: 100% 100%;
+	text-shadow: black 0.2em 0.2em 0.2em;
+	color: #ffffff;
+
+}
