@@ -3,6 +3,7 @@ var url = require('url');
 var fs = require('fs');
 
 var template_index = require('./lib/template_index.js');
+var template_login = require('./lib/template_login.js');
 
 var app = http.createServer(function(request, response) {
     var _url = request.url;
@@ -14,21 +15,19 @@ var app = http.createServer(function(request, response) {
             var html = template_index.HTML();
             response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
             response.end(html, 'utf-8'); 
-        }
-    } else if (pathname === '/css/bootstrap.css'
-        || pathname === '/css/main.css'
-        || pathname === '/css/jquery-ui.css'
-        || pathname === '/js/bootstrap.js'
-        || pathname === '/css/post.css'
-        || pathname === '/js/bootstrap.js'
-        || pathname === '/images/2.jpg'
-        || pathname === '/images/user.png'
-        || pathname === '/js/bootstrap.js'
-        || pathname === '/images/post.png'
-        || pathname === '/css/bootstrap.css.map'
+        } 
+    } else if (pathname === '/login') {
+        var html = template_login.HTML();
+        response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+        response.end(html, 'utf-8'); 
+    } else if (pathname.substring(0,5) === '/css/'
+        || pathname.substring(0,4) === '/js/'
+        || pathname.substring(0,8) === '/images/'
+        || pathname.substring(0,7) === '/fonts/'
         ) {
             fs.readFile(__dirname + pathname, function (err, data) {
-                var dotoffset = request.url.lastIndexOf('.');
+                var dotoffset = request.url.lastIndexOf('.');    
+                console.log(request.url.substr(dotoffset));
                 var mimetype = dotoffset == -1
                             ? 'text/plain'
                             : {
@@ -38,11 +37,14 @@ var app = http.createServer(function(request, response) {
                                 '.png' : 'image/png',
                                 '.gif' : 'image/gif',
                                 '.css' : 'text/css',
-                                '.js' : 'text/javascript'
+                                '.js' : 'text/javascript',
+                                '.woff2' : 'font/woff2',
+                                '.woff' : 'font/woff',
+                                '.ttf' : 'font/truetype',
+                                '.map' : 'text/plain'
                                 }[ request.url.substr(dotoffset) ];
             response.setHeader('Content-type' , mimetype);
             response.end(data);
-            console.log( request.url, mimetype );
             });
     } else {
         response.writeHead(404);
