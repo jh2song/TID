@@ -1,0 +1,25 @@
+{
+  "name": "tid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jh2song/TID.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jh2song/TID/issues"
+  },
+  "homepage": "https://github.com/jh2song/TID#readme",
+  "dependencies": {
+    "mariadb": "^2.5.3"
+  }
+}
